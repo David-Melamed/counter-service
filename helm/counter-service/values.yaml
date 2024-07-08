@@ -28,7 +28,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 serviceAccount:
-  create: false
+  create: true
   name: webapp-service-account
   annotations: {}
 
