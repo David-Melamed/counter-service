@@ -15,8 +15,8 @@ nameOverride: ""
 fullnameOverride: ""
 
 serviceAccount:
-  create: true
-  name: counter-service
+  create: false
+  name: webapp-service-account
   annotations: {}
 
 podAnnotations: {}
