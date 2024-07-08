@@ -47,9 +47,6 @@ resources:
   requests:
     cpu: 250m
     memory: 50Mi
-  labels:
-    app: webapp
-    tier: frontend
   probes:
     livenessProbe:
       initialDelaySeconds: 30
