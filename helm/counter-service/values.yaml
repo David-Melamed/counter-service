@@ -9,6 +9,19 @@ image:
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
+  probes:
+    livenessProbe:
+      initialDelaySeconds: 30
+      periodSeconds: 10
+      failureThreshold: 3
+    readinessProbe:
+      initialDelaySeconds: 5
+      periodSeconds: 10
+      failureThreshold: 3
+    startupProbe:
+      initialDelaySeconds: 5
+      periodSeconds: 10
+      failureThreshold: 3
 
 imagePullSecrets: []
 nameOverride: ""
@@ -47,19 +60,6 @@ resources:
   requests:
     cpu: 250m
     memory: 50Mi
-  probes:
-    livenessProbe:
-      initialDelaySeconds: 30
-      periodSeconds: 10
-      failureThreshold: 3
-    readinessProbe:
-      initialDelaySeconds: 5
-      periodSeconds: 10
-      failureThreshold: 3
-    startupProbe:
-      initialDelaySeconds: 5
-      periodSeconds: 10
-      failureThreshold: 3
 
 autoscaling:
   enabled: false
