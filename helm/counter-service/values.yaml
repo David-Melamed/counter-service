@@ -18,9 +18,6 @@ serviceAccount:
   create: true
   name: counter-service
   annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
-  name: ""
 
 podAnnotations: {}
 
@@ -50,6 +47,22 @@ resources:
   requests:
     cpu: 250m
     memory: 50Mi
+  labels:
+    app: webapp
+    tier: frontend
+  probes:
+    livenessProbe:
+      initialDelaySeconds: 30
+      periodSeconds: 10
+      failureThreshold: 3
+    readinessProbe:
+      initialDelaySeconds: 5
+      periodSeconds: 10
+      failureThreshold: 3
+    startupProbe:
+      initialDelaySeconds: 5
+      periodSeconds: 10
+      failureThreshold: 3
 
 autoscaling:
   enabled: false
